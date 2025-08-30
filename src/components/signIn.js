@@ -41,9 +41,11 @@ export default function App() {
     };
   
     return (
-      <div style={{ textAlign: "center", marginTop: "50px" }}>
-        <h1>Sign in to Google Calendar</h1>
-        <button onClick={handleSignIn}>Sign In with Google</button>
+        <div 
+        onClick={handleSignIn} 
+        className="cursor-pointer flex justify-center items-center font-semibold text-sm bg-green-500 hover:bg-green-600 text-white px-3 py-1 rounded-lg shadow-md transition"
+      >
+        Sign In
       </div>
     );
   }

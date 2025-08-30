@@ -3,6 +3,7 @@ import AddEvent from "./addAssignment";
 import CalendarDropdown from "./calendarDropdown";
 import CalendarSettings from "./calendarSettings";
 import SignOut from "./signOut";
+import SignIn from "./signIn";
 
 export default function Dashboard() {
     const location = window.history.state?.usr || {};
@@ -97,7 +98,8 @@ export default function Dashboard() {
 
                 {/* Tools dropdown */}
                 <div className="relative flex flex-row gap-2">
-                    <SignOut />
+                    {token ? <SignOut /> : <SignIn />}
+
                     <div className="relative">
                         <button
                             onClick={() => setShowTopDropdown(!showTopDropdown)}
