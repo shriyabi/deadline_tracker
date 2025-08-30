@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/deadline_tracker/static/css/main.e230d836.css",
-    "main.js": "/deadline_tracker/static/js/main.33cfbf72.js",
+    "main.js": "/deadline_tracker/static/js/main.5de14494.js",
     "static/js/488.fecd9582.chunk.js": "/deadline_tracker/static/js/488.fecd9582.chunk.js",
     "index.html": "/deadline_tracker/index.html",
     "main.e230d836.css.map": "/deadline_tracker/static/css/main.e230d836.css.map",
-    "main.33cfbf72.js.map": "/deadline_tracker/static/js/main.33cfbf72.js.map",
+    "main.5de14494.js.map": "/deadline_tracker/static/js/main.5de14494.js.map",
     "488.fecd9582.chunk.js.map": "/deadline_tracker/static/js/488.fecd9582.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e230d836.css",
-    "static/js/main.33cfbf72.js"
+    "static/js/main.5de14494.js"
   ]
 }
