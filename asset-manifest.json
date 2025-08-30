@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/AssignmentAdder/static/css/main.e230d836.css",
+    "main.js": "/AssignmentAdder/static/js/main.04e1db4e.js",
+    "static/js/488.fecd9582.chunk.js": "/AssignmentAdder/static/js/488.fecd9582.chunk.js",
+    "index.html": "/AssignmentAdder/index.html",
+    "main.e230d836.css.map": "/AssignmentAdder/static/css/main.e230d836.css.map",
+    "main.04e1db4e.js.map": "/AssignmentAdder/static/js/main.04e1db4e.js.map",
+    "488.fecd9582.chunk.js.map": "/AssignmentAdder/static/js/488.fecd9582.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e230d836.css",
+    "static/js/main.04e1db4e.js"
+  ]
+}
