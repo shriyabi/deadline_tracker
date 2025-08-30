@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/AssignmentAdder/static/css/main.e230d836.css",
-    "main.js": "/AssignmentAdder/static/js/main.04e1db4e.js",
-    "static/js/488.fecd9582.chunk.js": "/AssignmentAdder/static/js/488.fecd9582.chunk.js",
-    "index.html": "/AssignmentAdder/index.html",
-    "main.e230d836.css.map": "/AssignmentAdder/static/css/main.e230d836.css.map",
-    "main.04e1db4e.js.map": "/AssignmentAdder/static/js/main.04e1db4e.js.map",
-    "488.fecd9582.chunk.js.map": "/AssignmentAdder/static/js/488.fecd9582.chunk.js.map"
+    "main.css": "/deadline_tracker/static/css/main.e230d836.css",
+    "main.js": "/deadline_tracker/static/js/main.f4cfbc2f.js",
+    "static/js/488.fecd9582.chunk.js": "/deadline_tracker/static/js/488.fecd9582.chunk.js",
+    "index.html": "/deadline_tracker/index.html",
+    "main.e230d836.css.map": "/deadline_tracker/static/css/main.e230d836.css.map",
+    "main.f4cfbc2f.js.map": "/deadline_tracker/static/js/main.f4cfbc2f.js.map",
+    "488.fecd9582.chunk.js.map": "/deadline_tracker/static/js/488.fecd9582.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e230d836.css",
-    "static/js/main.04e1db4e.js"
+    "static/js/main.f4cfbc2f.js"
   ]
 }
