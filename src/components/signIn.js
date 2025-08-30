@@ -1,12 +1,11 @@
-//1044830263556-gm1cbnkrressl0vpmdrfk8ssori2533o.apps.googleusercontent.com
-//secret: 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
-
 import { useEffect, useState } from "react";
 
 import { useNavigate } from "react-router-dom";
 
-import { CLIENT_ID, DISCOVERY_DOC, SCOPES } from "./.env";
-
+const CLIENT_ID = process.env.REACT_APP_CLIENT_ID;
+const DISCOVERY_DOC = "https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest";
+const SCOPES = "https://www.googleapis.com/auth/calendar";
+console.log("Client ID:", CLIENT_ID);
 export default function App() {
     const navigate = useNavigate();
     const [gapiLoaded, setGapiLoaded] = useState(false);
