@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 const CLIENT_ID = process.env.REACT_APP_CLIENT_ID;
 const DISCOVERY_DOC = "https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest";
 const SCOPES = "https://www.googleapis.com/auth/calendar";
-console.log("Client ID:", CLIENT_ID);
+console.log("more ,weee");
 export default function App() {
     const navigate = useNavigate();
     const [gapiLoaded, setGapiLoaded] = useState(false);
@@ -25,7 +25,7 @@ export default function App() {
             scope: SCOPES,
             callback: (resp) => {
               if (resp.access_token) {
-                navigate("/dashboard", { state: { token: resp.access_token } });
+                navigate("/deadline_tracker/", { state: { token: resp.access_token } });
               }
             },
           });

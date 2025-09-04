@@ -12,6 +12,7 @@
 /build
 
 .env
+/frontend/ai_adder
 
 # misc
 .DS_Store
