@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/deadline_tracker/static/css/main.dacc4ae3.css",
-    "main.js": "/deadline_tracker/static/js/main.8270ae9a.js",
+    "main.js": "/deadline_tracker/static/js/main.e141b174.js",
     "static/js/488.fecd9582.chunk.js": "/deadline_tracker/static/js/488.fecd9582.chunk.js",
     "index.html": "/deadline_tracker/index.html",
     "main.dacc4ae3.css.map": "/deadline_tracker/static/css/main.dacc4ae3.css.map",
-    "main.8270ae9a.js.map": "/deadline_tracker/static/js/main.8270ae9a.js.map",
+    "main.e141b174.js.map": "/deadline_tracker/static/js/main.e141b174.js.map",
     "488.fecd9582.chunk.js.map": "/deadline_tracker/static/js/488.fecd9582.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.dacc4ae3.css",
-    "static/js/main.8270ae9a.js"
+    "static/js/main.e141b174.js"
   ]
 }
