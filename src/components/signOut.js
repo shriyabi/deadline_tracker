@@ -10,7 +10,7 @@ const SignOut = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
     // redirect to login page
-    window.location.href = "/";
+    window.location.href = "/deadline_tracker";
   };
 
   return (

@@ -3,9 +3,12 @@ import CalendarDropdown from "./calendarDropdown";
 import CalendarSettings from "./calendarSettings";
 import SignOut from "./signOut";
 import SignIn from "./signIn";
+import AddEvent from "./addAssignment";
+import {DateTime} from "luxon"; 
 
 export async function extractAssignments(text) {
-    const response = await fetch("http://localhost:8000/extract-assignments", {
+    //const response = await fetch("http://localhost:8000/extract-assignments", {
+    const response = await fetch("https://f034b03bd14d.ngrok-free.app/extract-assignments", {    
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -60,11 +63,25 @@ export default function Dashboard() {
     const fetchEvents = async (calendarIds) => {
         if (!calendarIds.length) return setEventsByCalendar({});
         const allEvents = {};
+
+        //timezone to display events after utc = next day
+        const {result} = await window.gapi.client.calendar.settings.get({setting: "timezone"}); 
+        const userTimeZone = result.value || Intl.DateTimeFormat().resolvedOptions().timeZone; 
+
+        const todayInUserTimeZone = DateTime.now().setZone(userTimeZone); 
+        console.log(todayInUserTimeZone.startOf("day")); 
+        const startOfDayUTC = todayInUserTimeZone.startOf("day").toISO(); 
+        const endOfDayUTC = todayInUserTimeZone.endOf("day").toISO(); 
+        console.log(startOfDayUTC, endOfDayUTC); 
+
         for (let id of calendarIds) {
             try {
                 const res = await window.gapi.client.calendar.events.list({
                     calendarId: id,
-                    timeMin: new Date().toISOString(),
+                    //timeMin: new Date().toISOString(),
+                    timeMin: startOfDayUTC,
+                    timeMax: endOfDayUTC,
+                    timeZone: userTimeZone,
                     showDeleted: false,
                     singleEvents: true,
                     orderBy: "startTime",
@@ -243,7 +260,7 @@ export default function Dashboard() {
                                                 Extract Assignments
                                             </button>
 
-                                            {aiEvents.length === 0 && <p className="text-gray-500 text-sm">No AI-generated events yet.</p>}
+                                            {aiEvents.length === 0 && <p className="text-gray-500 text-sm">No AI-generated events yet. <br></br> NOTE: Currently, AI-Generation is only available on localhost.</p>}
 
                                             {aiEvents.map((ev, i) => (
                                                 <div
@@ -383,7 +400,8 @@ export default function Dashboard() {
                 <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[2000]">
                     <div className="bg-white p-6 rounded shadow-lg w-96 space-y-4">
                         <h2 className="text-lg font-bold">Add Event</h2>
-                        <input
+                        <AddEvent/>
+                        {/*<input
                             type="text"
                             placeholder="Event Title"
                             className="w-full border p-2 rounded"
@@ -421,7 +439,7 @@ export default function Dashboard() {
                             >
                                 Add
                             </button>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             )}

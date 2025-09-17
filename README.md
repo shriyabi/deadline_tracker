@@ -1,71 +1,108 @@
-# Getting Started with Create React App
+# Deadline Manager
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Deadline Manager** is a one-stop-shop AI-boosted application that allows you to input a list of events, and all you need to do is approve the addition of each event to your Google Calendar. The AI will create events based on your input.  
 
-## Available Scripts
+Whether you are a student, a teacher, an employee, or simply someone with dates to track, this application makes your life easier by eliminating the hassle of manually adding events.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## Table of Contents
+- [Quickstart Guide](#quickstart-guide)
+- [Features](#features)
+- [Architecture Diagram](#architecture-diagram)
+- [Usage Examples](#usage-examples)
+- [FAQ](#faq)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Quickstart Guide
 
-### `npm test`
+**Prerequisites:**  
+- A Google account is required.  
+- This application interacts with your Google Calendar. You will be prompted to give authorization for the app to modify your calendar.  
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+**Access the application here:**  
+ [Deadline Manager](https://shriyabi.github.io/deadline_tracker/)  
 
-### `npm run build`
+1. Click **Sign In** (green button at the top right).  
+2. Authorize the application to access your Google Calendar.  
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Note: Currently the application is in the testing phase and has not yet been approved by Google.  
+If you would like to be added as a test user, please email **sbiddala@umich.edu**.  
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Features
 
-### `npm run eject`
+- View events for selected Google Calendars as per-calendar lists on your dashboard.  
+- Add, edit, or delete Google calendars.  
+- Manually add or delete events where you can specify the title, time, and date (location not supported yet).  
+- Input a string of events with due dates and times, and **Gemma AI** will extract the events and list them on your dashboard for approval before adding them to a user-specified calendar.  
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Demo Videos
+Here are short demos of the app in action:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![Demo Video 1](demo/IMG_7054.mp4)  
+![Demo Video 2](demo/IMG_7055%202.mp4)  
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Architecture Diagram
 
-## Learn More
+![Architecture Diagram](demo/497_assignment.drawio.png)  
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Usage Examples
 
-### Code Splitting
+Here are some screenshots of real usage:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+![Screenshot 1](demo/Screenshot 2025-09-16 at 11.46.15 PM)  
+![Screenshot 2](demo/Screenshot 2025-09-16 at 11.47.01 PM)  
+![Screenshot 3](demo/Screenshot 2025-09-16 at 11.47.34 PM)
+![Screenshot 4](demo/Screenshot 2025-09-16 at 11.48.06 PM)   
+![Screenshot 5](demo/Screenshot 2025-09-16 at 11.48.48 PM)   
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## FAQ
 
-### Making a Progressive Web App
+**Q: What does this app do?**  
+A: This app helps you manage deadlines by organizing your tasks, events, and due dates across multiple calendars. It also uses Gemma AI to suggest events it detects from your text or documents, which you can approve to add to your chosen calendar.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+**Q: Do I need to create a Google account?**  
+A: Yes, a Google account is required so you can securely save and manage your calendars and events across devices.
 
-### Advanced Configuration
+**Q: How do I create a new calendar?**  
+A: Go to the **Calendar Settings** tab under Tools and tap **Create Calendar**. Enter a name.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+**Q: How do I edit or delete a calendar?**  
+A: In the **Calendar Settings** tab, select the calendar you want to edit or delete. Select **Edit** to update its name or **Delete** to remove it entirely.  
+*(Note: deleting a calendar will also delete its events.)*
 
-### Deployment
+**Q: Can I select which calendar to use when adding an event?**  
+A: Yes — when adding or approving an event, you’ll be prompted to select which calendar it should go into.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+**Q: How do I add an event manually?**  
+A: Open your calendar, tap the **Add Event** button under Tools, and fill in the event details such as title, date, and time.
 
-### `npm run build` fails to minify
+**Q: How do I delete an event?**  
+A: Use the **Delete** button next to the event name when you view the respective calendar.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# deadline_tracker
+**Q: How does Gemma help me manage events?**  
+A: Gemma analyzes your input (like emails, messages, or notes) and extracts potential deadlines or events. It then presents them to you for approval before adding them to your calendar.
+
+**Q: Will Gemma automatically add events without asking me?**  
+A: No, Gemma will only suggest events. You decide whether to add them and to which calendar.
+
+**Q: What kind of events can Gemma detect?**  
+A: Common ones include due dates, meeting times, reminders, and recurring tasks.  
+For example: *“Project due on Oct 12”* or *“Team meeting every Friday at 10am.”*
+
+**Q: Can I reject events suggested by Gemma?**  
+A: Yes. You will always have the option to reject or edit events before they’re added.
+
+**Q: Are my events private?**  
+A: Yes. Your events and calendars are only accessible to you. Gemma’s suggestions are processed securely and no information is stored. You always control what gets added.
+
+---
