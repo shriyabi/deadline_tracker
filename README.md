@@ -57,11 +57,11 @@ Here are short demos of the app in action:
 
 Here are some screenshots of real usage:
 
-![Image](demo/Screenshot 2025-09-16 at 11.46.15 PM.png)  
-![Image](demo/Screenshot 2025-09-16 at 11.47.01 PM.png)  
-![Image](demo/Screenshot 2025-09-16 at 11.47.34 PM.png)
-![Image](demo/Screenshot 2025-09-16 at 11.48.06 PM.png)   
-![Image](demo/Screenshot 2025-09-16 at 11.48.48 PM.png)   
+![Image](demo/img1.png)  
+![Image](demo/img2.png)  
+![Image](demo/img3.png)
+![Image](demo/img4.png)   
+![Image](demo/img5.png)   
 
 ---
 
