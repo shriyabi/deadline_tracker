@@ -42,8 +42,8 @@ If you would like to be added as a test user, please email **sbiddala@umich.edu*
 ### Demo Videos
 Here are short demos of the app in action:
 
-![Demo Video 1](demo/IMG_7054.mp4)  
-![Demo Video 2](demo/a6dv0c.mp4)  
+![Demo Video 1](demo/a6dvkt.gif)  
+![Demo Video 2](demo/a6dv0c.gif)  
 
 ---
 
