@@ -42,8 +42,8 @@ If you would like to be added as a test user, please email **sbiddala@umich.edu*
 ### Demo Videos
 Here are short demos of the app in action:
 
-![Demo Video 1](demo/a6dvkt.gif)  
-![Demo Video 2](demo/a6dv0c.gif)  
+![Demo Video 1: Showing the extracted assignments added to the dashboard to be added/edited/deleted](demo/a6dvkt.gif)  
+![Demo Video 2: Showing how to select calendars](demo/a6dv0c.gif)  
 
 ---
 
@@ -57,11 +57,11 @@ Here are short demos of the app in action:
 
 Here are some screenshots of real usage:
 
-![Image](demo/img1.png)  
-![Image](demo/img2.png)  
-![Image](demo/img3.png)
-![Image](demo/img4.png)   
-![Image](demo/img5.png)   
+![Image: Showing nav_bar](demo/img1.png)  
+![Image: Showing dashboard](demo/img2.png)  
+![Image: Showing Add/Edit/Delete Calendar Tool](demo/img3.png)
+![Image: Showing Tool To input text into Gemma](demo/img4.png)   
+![Image: Showing Adding Event Tool](demo/img5.png)   
 
 ---
 
