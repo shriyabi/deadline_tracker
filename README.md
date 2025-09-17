@@ -43,7 +43,7 @@ If you would like to be added as a test user, please email **sbiddala@umich.edu*
 Here are short demos of the app in action:
 
 ![Demo Video 1](demo/IMG_7054.mp4)  
-![Demo Video 2](demo/IMG_7055%202.mp4)  
+![Demo Video 2](demo/a6dv0c.mp4)  
 
 ---
 
