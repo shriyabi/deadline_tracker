@@ -36,9 +36,20 @@ export default function Dashboard() {
     const [showTopDropdown, setShowTopDropdown] = useState(false);
     const [showAiDropdown, setShowAiDropdown] = useState(false);
 
+    const [isDarkMode, setIsDarkMode] = useState(window.matchMedia('(prefers-color-scheme: dark)').matches);
+
+    useEffect(() => {
+        const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+        const handler = (e) => setIsDarkMode(e.matches);
+        mediaQuery.addEventListener('change', handler);
+        return () => mediaQuery.removeEventListener('change', handler);
+      }, []);
+      
+      
+    console.log(isDarkMode); 
+
     // Add Event popup state
     const [showAddPopup, setShowAddPopup] = useState(false);
-    const [newEvent, setNewEvent] = useState({ title: "", date: "", calendarId: "" });
 
     // AI tool state
     const [inputText, setInputText] = useState("");
@@ -60,41 +71,40 @@ export default function Dashboard() {
     }, [token]);
 
     // Fetch events
-    const fetchEvents = async (calendarIds) => {
-        if (!calendarIds.length) return setEventsByCalendar({});
-        const allEvents = {};
+const fetchEvents = async (calendarIds) => {
+    if (!calendarIds.length) return setEventsByCalendar({});
+    const allEvents = {};
+  
+    // Get user timezone from Calendar API or fallback
+    const { result } = await window.gapi.client.calendar.settings.get({ setting: "timezone" });
+    const userTimeZone = result?.value || Intl.DateTimeFormat().resolvedOptions().timeZone;
+  
+    // Calculate start and end of the day in user’s TZ, then convert to UTC ISO
+    const todayInUserTimeZone = DateTime.now().setZone(userTimeZone);
+    const startOfDayUTC = todayInUserTimeZone.startOf("day").toUTC().toISO(); //display events for the entire day
 
-        //timezone to display events after utc = next day
-        const {result} = await window.gapi.client.calendar.settings.get({setting: "timezone"}); 
-        const userTimeZone = result.value || Intl.DateTimeFormat().resolvedOptions().timeZone; 
-
-        const todayInUserTimeZone = DateTime.now().setZone(userTimeZone); 
-        console.log(todayInUserTimeZone.startOf("day")); 
-        const startOfDayUTC = todayInUserTimeZone.startOf("day").toISO(); 
-        const endOfDayUTC = todayInUserTimeZone.endOf("day").toISO(); 
-        console.log(startOfDayUTC, endOfDayUTC); 
-
-        for (let id of calendarIds) {
-            try {
-                const res = await window.gapi.client.calendar.events.list({
-                    calendarId: id,
-                    //timeMin: new Date().toISOString(),
-                    timeMin: startOfDayUTC,
-                    timeMax: endOfDayUTC,
-                    timeZone: userTimeZone,
-                    showDeleted: false,
-                    singleEvents: true,
-                    orderBy: "startTime",
-                    maxResults: 50,
-                });
-                allEvents[id] = res.result.items || [];
-            } catch (err) {
-                console.error(`Error fetching events for calendar ${id}:`, err);
-                allEvents[id] = [];
-            }
-        }
-        setEventsByCalendar(allEvents);
-    };
+    console.log("Start:", startOfDayUTC);
+  
+    for (let id of calendarIds) {
+      try {
+        const res = await window.gapi.client.calendar.events.list({
+          calendarId: id,
+          timeMin: startOfDayUTC,
+          showDeleted: false,
+          singleEvents: true,
+          orderBy: "startTime",
+          maxResults: 50,
+        });
+        allEvents[id] = res.result.items || [];
+      } catch (err) {
+        console.error(`Error fetching events for calendar ${id}:`, err);
+        allEvents[id] = [];
+      }
+    }
+  
+    setEventsByCalendar(allEvents);
+  };
+  
 
     useEffect(() => {
         if (token) fetchEvents(selectedCalendars);
@@ -163,40 +173,21 @@ export default function Dashboard() {
         }
     };
 
-    // Add manual event
-    const handleAddEvent = async () => {
-        if (!newEvent.title || !newEvent.date || !newEvent.calendarId) {
-            return alert("Please fill out all fields!");
-        }
-        try {
-            await window.gapi.client.calendar.events.insert({
-                calendarId: newEvent.calendarId,
-                resource: {
-                    summary: newEvent.title,
-                    start: { date: newEvent.date },
-                    end: { date: newEvent.date },
-                },
-            });
-            setShowAddPopup(false);
-            setNewEvent({ title: "", date: "", calendarId: "" });
-            fetchEvents(selectedCalendars);
-        } catch (err) {
-            console.error("Failed to add manual event:", err);
-        }
-    };
+   // const isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
 
     return (
-        <div className="flex flex-col min-h-screen w-screen">
+        <div className="flex flex-col min-h-screen w-screen dark:bg-neutral-800">
             {/* Top bar */}
-            <div className="flex flex-wrap justify-between items-center px-6 py-4 bg-gray-100">
-                <h1 className="text-xl overline md:text-2xl font-black">deadline_manager.</h1>
+            <div className="flex flex-wrap justify-between items-center px-6 py-4 bg-gray-100 dark:bg-neutral-700">
+                <h1 className="text-xl overline md:text-2xl dark:text-white font-black">deadline_manager.</h1>
 
                 <div className="relative flex flex-row gap-2">
                     {token ? <SignOut /> : <SignIn />}
                     <div className="relative">
                         <button
                             onClick={() => setShowTopDropdown(!showTopDropdown)}
-                            className="bg-yellow-300 text-lg font-bold hover:text-xl px-3 py-1 rounded flex items-center"
+                            className="bg-yellow-300 text-lg font-bold hover:text-xl px-3 py-1 rounded flex items-center text-black"
                             title="Tools"
                         >
                             ⚙️ Tools
@@ -400,52 +391,19 @@ export default function Dashboard() {
                 <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[2000]">
                     <div className="bg-white p-6 rounded shadow-lg w-96 space-y-4">
                         <h2 className="text-lg font-bold">Add Event</h2>
-                        <AddEvent/>
-                        {/*<input
-                            type="text"
-                            placeholder="Event Title"
-                            className="w-full border p-2 rounded"
-                            value={newEvent.title}
-                            onChange={(e) => setNewEvent({ ...newEvent, title: e.target.value })}
-                        />
-                        <input
-                            type="date"
-                            className="w-full border p-2 rounded"
-                            value={newEvent.date}
-                            onChange={(e) => setNewEvent({ ...newEvent, date: e.target.value })}
-                        />
-                        <select
-                            className="w-full border p-2 rounded"
-                            value={newEvent.calendarId}
-                            onChange={(e) => setNewEvent({ ...newEvent, calendarId: e.target.value })}
-                        >
-                            <option value="">Select calendar...</option>
-                            {calendars.map((cal) => (
-                                <option key={cal.id} value={cal.id}>
-                                    {cal.summary}
-                                </option>
-                            ))}
-                        </select>
-                        <div className="flex justify-end space-x-2">
-                            <button
-                                onClick={() => setShowAddPopup(false)}
-                                className="bg-gray-300 hover:bg-gray-400 px-3 py-1 rounded"
-                            >
-                                Cancel
-                            </button>
-                            <button
-                                onClick={handleAddEvent}
-                                className="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded"
-                            >
-                                Add
-                            </button>
-                        </div> */}
+                        <AddEvent
+    token={token}
+    calendars={calendars}
+    onEventAdded={(ev) => fetchEvents(selectedCalendars)}
+    onClose={() => setShowAddPopup(false)}
+/>
+
                     </div>
                 </div>
             )}
 
             {/* Calendars and events */}
-            <div className="flex flex-col px-6 sm:flex-row sm:flex-wrap w-full h-full items-start py-6 justify-start overflow-y-scroll">
+            <div className="flex flex-col px-6 sm:flex-row sm:flex-wrap w-full h-full items-start py-6 justify-start overflow-y-scroll dark:text-white">
                 {selectedCalendars.map((calId) => {
                     const cal = calendars.find((c) => c.id === calId);
                     if (!cal) return null;
@@ -457,7 +415,7 @@ export default function Dashboard() {
                         <div key={calId} className="w-full h-[50vh] md:w-1/3 max-h-1/2 px-2 py-2">
                             <div
                                 className="w-full p-4 relative rounded h-full overflow-y-scroll"
-                                style={{ border: `4px solid ${borderColor}`, backgroundColor: bgColor }}
+                                style={{ border: `4px solid ${isDarkMode ? borderColor : darkenColor(borderColor)}`, backgroundColor: bgColor }}
                             >
                                 <button
                                     onClick={() => handleRemoveCalendarFromView(calId)}
@@ -468,7 +426,7 @@ export default function Dashboard() {
                                     ✖
                                 </button>
 
-                                <div className="font-bold text-lg underline mb-2" style={{ color: darkenColor(borderColor) }}>
+                                <div className="font-bold text-lg underline mb-2" style={{ color: (isDarkMode ? darkenColor(borderColor) : borderColor)}}>
                                     {cal?.summary}
                                 </div>
 
