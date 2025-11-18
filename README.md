@@ -42,8 +42,11 @@ If you would like to be added as a test user, please email **sbiddala@umich.edu*
 ### Demo Videos
 Here are short demos of the app in action:
 
-![Demo Video 1: Showing the extracted assignments added to the dashboard to be added/edited/deleted](demo/deadline_manager_demo.gif)  
-<!-- ![Demo Video 2: Showing how to select calendars](demo/a6dv0c.gif)   -->
+**Selecting Calendars** ![Demo Video 1: Selecting calendars to view and remove from dashboard.](demo/select_calendars.gif)
+*Description: This GIF shows how user can select desired calendars to view on their dashboard and remove them from their dashboard once done.*
+
+**Using AI Assignment extraction** ![Demo Video 2: Inputting assignments and getting events in a ready to add to Calendar format. ](demo/ai_extractor.gif)
+*Description: This GIF shows how user can input events, get them back in a ready to add to calendar format, add events to calendar and edit/delete events before adding.*
 
 ---
 
