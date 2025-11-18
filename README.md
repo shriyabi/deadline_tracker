@@ -42,8 +42,8 @@ If you would like to be added as a test user, please email **sbiddala@umich.edu*
 ### Demo Videos
 Here are short demos of the app in action:
 
-![Demo Video 1: Showing the extracted assignments added to the dashboard to be added/edited/deleted](demo/a6dvkt.gif)  
-![Demo Video 2: Showing how to select calendars](demo/a6dv0c.gif)  
+![Demo Video 1: Showing the extracted assignments added to the dashboard to be added/edited/deleted](demo/deadline_manager_demo.gif)  
+<!-- ![Demo Video 2: Showing how to select calendars](demo/a6dv0c.gif)   -->
 
 ---
 
@@ -57,11 +57,27 @@ Here are short demos of the app in action:
 
 Here are some screenshots of real usage:
 
-![Image: Showing nav_bar](demo/img1.png)  
-![Image: Showing dashboard](demo/img2.png)  
-![Image: Showing Add/Edit/Delete Calendar Tool](demo/img3.png)
-![Image: Showing Tool To input text into Gemma](demo/img4.png)   
-![Image: Showing Adding Event Tool](demo/img5.png)   
+### Application Features Overview
+
+1.  **Navigation Bar**
+    ![Screenshot of Navigation Bar](demo/step1.png)
+    *Description: This image displays the main navigation bar on the left side of the application, providing links to key sections like the Dashboard, Calendar, and various Tools.*
+
+2.  **Dashboard View**
+    ![Screenshot of Dashboard](demo/step2.png)
+    *Description: The application's dashboard, offering a centralized view of upcoming events, recent activities, and quick access to core features.*
+
+3.  **Calendar Management Tools**
+    ![Screenshot of Add/Edit/Delete Calendar Tool](demo/step3.png)
+    *Description: An interface dedicated to managing calendar entries, featuring options to Add, Edit, and Delete events.*
+
+4.  **Gemma Text Input Interface**
+    ![Screenshot of Tool To input text into Gemma](demo/step4.png)
+    *Description: A specialized tool designed for inputting text directly into the Gemma AI model, enabling interactive queries and content generation.*
+
+5.  **Event Creation Form**
+    ![Screenshot of Adding Event Tool](demo/step5.png)
+    *Description: The form for adding a new event to the calendar, where users can define event details such as title, date, time, and description.*
 
 ---
 
